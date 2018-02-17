@@ -56,7 +56,12 @@ var initDb = function(callback) {
   });
 };
 
-app.get('/', function (req, res) {
+app.route('/*')
+  .get(( req, res) => {
+    res.sendFile(path.resolve(__dirname + '/client/index.html'))
+  })
+
+app.get('/bak', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
   if (!db) {
