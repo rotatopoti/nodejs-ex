@@ -56,9 +56,12 @@ var initDb = function(callback) {
   });
 };
 
+app.use(express.static('./client'));
+
 app.route('/*')
   .get(( req, res) => {
-    res.sendFile(path.resolve(__dirname + '/client/index.html'))
+    console.log('dir', __dirname + '/client/index.html');
+    res.sendFile(path.resolve(app.get(__dirname) , '/client/index.html'));
   })
 
 app.get('/bak', function (req, res) {
