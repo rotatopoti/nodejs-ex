@@ -61,7 +61,7 @@ app.use(express.static('./client'));
 app.route('/*')
   .get(( req, res) => {
     console.log('dir', __dirname + '/client/index.html');
-    res.sendFile('index.html');
+    res.sendFile(__dirname + '/client/index.html');
   })
 
 app.get('/bak', function (req, res) {
